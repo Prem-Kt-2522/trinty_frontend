@@ -16,7 +16,7 @@ const Success = () => {
                     <div className="text-base mt-5">
                         For any product related query, drop an email to
                     </div>
-                    <div className="underline">https://trinty-frontend.vercel.app/</div>
+                    <div className="underline">dkatti71@gmail.com</div>
 
                     <Link href="/" className="font-bold mt-5">
                         Continue Shopping
