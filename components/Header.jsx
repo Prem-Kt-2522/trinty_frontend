@@ -62,7 +62,7 @@ const Header = () => {
       >
         <Wrapper className="h-[60px] flex justify-between items-center">
           <Link href="/">
-            <img src="/LOGO.PNG" className="w-[60px] md:w-[80px]" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/trinity-408414.appspot.com/o/LOGO.png?alt=media&token=499e8e0f-86ff-4108-91a8-b47a945ba4d7" className="w-[60px] md:w-[80px]" />
           </Link>
 
           <Menu
