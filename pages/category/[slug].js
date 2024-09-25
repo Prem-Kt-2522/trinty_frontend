@@ -31,24 +31,12 @@ const Category = ({ category, products, slug }) => {
                     </div>
                 </div>
 
-                {/* products grid start */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-14 px-5 md:px-0">
                     {data?.data?.map((product) => (
                         <ProductCard key={product?.id} data={product} />
                     ))}
-                    {/* <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard /> */}
+                   
                 </div>
-                {/* products grid end */}
-
-                {/* PAGINATION BUTTONS START */}
                 {data?.meta?.pagination?.total > maxResult && (
                     <div className="flex gap-3 items-center justify-center my-16 md:my-0">
                         <button
@@ -75,7 +63,6 @@ const Category = ({ category, products, slug }) => {
                         </button>
                     </div>
                 )}
-                {/* PAGINATION BUTTONS END */}
                 {isLoading && (
                     <div className="absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
                         <img src="/logo.svg" width={150} />
@@ -103,7 +90,6 @@ export async function getStaticPaths() {
     };
 }
 
-// `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps({ params: { slug } }) {
     const category = await fetchDataFromApi(
         `/api/categories?filters[slug][$eq]=${slug}`
