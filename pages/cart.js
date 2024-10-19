@@ -1,19 +1,37 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Wrapper from "@/components/Wrapper";
 import CartItem from "@/components/CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "@/store/cartSlice"; // Make sure you have an action to add items
 
 import { makePaymentRequest } from "@/utils/api";
 import { loadStripe } from "@stripe/stripe-js";
+
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
 
 const Cart = () => {
     const [loading, setLoading] = useState(false);
+    const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
+
+    // Load cart items from local storage when the component mounts
+    useEffect(() => {
+        const savedCartItems = localStorage.getItem("cartItems");
+        if (savedCartItems) {
+            JSON.parse(savedCartItems).forEach((item) => {
+                dispatch(addToCart(item)); // Add each item to the Redux store
+            });
+        }
+    }, [dispatch]);
+
+    // Save cart items to local storage whenever they change
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
 
     const subTotal = useMemo(() => {
         return cartItems.reduce(
