@@ -202,18 +202,18 @@ const ProductDetails = ({ product, products }) => {
                             </div>
                         </div>
                         <div className="pin mt-6 flex space-x-2 text-sm">
-                <input
-                  onChange={onChnagePin}
-                  placeholder="check your pincode"
-                  className="px-2 border-2 border-gray-400 rounded-md"
-                  type="number"
-                />
-                <button
-                  onClick={checkService}
-                  className="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded"
-                >
-                  Check
-                </button>
+                // <input
+                //   onChange={onChnagePin}
+                //   placeholder="check your pincode"
+                //   className="px-2 border-2 border-gray-400 rounded-md"
+                //   type="number"
+                // />
+                // <button
+                //   onClick={checkService}
+                //   className="text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded"
+                // >
+                //   Check
+                // </button>
               </div>
               {!service && service != null && (
                 <div className="text-red-700 text-sm mt-3">
